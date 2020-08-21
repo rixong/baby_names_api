@@ -16,16 +16,17 @@ ActiveRecord::Schema.define(version: 2020_08_21_143236) do
   enable_extension "plpgsql"
 
   create_table "lists", force: :cascade do |t|
-    t.string "u_id"
+    t.string "uid", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "names", force: :cascade do |t|
     t.string "name"
-    t.string "u_id"
+    t.string "uid"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "list_id"
   end
 
 end
