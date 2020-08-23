@@ -4,17 +4,20 @@ class ListsController < ApplicationController
 
   def index
     list_uid = params[:list_id]
-    if list_uid.empty?
+    if !list_uid || list_uid.empty?
       new_uid = SecureRandom.base64(9)
-      render json: {error: new_uid}
+      List.create(uid: new_uid)
+      render json: {uid: new_uid}
     else
-      list_id = List.find_by(uid: list_uid)
-        if !list_id
-          render json: {error: "No such ID"}
-        else
-          lists = Name.where("uid = ?", list_uid)
-          render json: {id:list_id, names: lists}
-        end
+      list = List.find_by(uid: list_uid)
+      # byebug
+      if !list
+        render json: {error: "No such ID"}
+      else
+        lists = list.names
+        render json: {uid:list.uid, names: lists}
       end
     end
+  end
+
 end
