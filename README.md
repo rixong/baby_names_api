@@ -33,6 +33,7 @@ it.
 appropriate error messaging to the user.
 ● Use PostgreSQL for your database engine
 ● SPA is fully static and implemented using ReactJS
+
 Stretch Goals (completely optional)
 ● Use Redux state management for the UI
 ● Clicking on a name crosses it out (and clicking again un-crosses it out). This crossed-out

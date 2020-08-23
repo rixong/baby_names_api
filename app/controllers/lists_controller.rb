@@ -12,7 +12,7 @@ class ListsController < ApplicationController
       list = List.find_by(uid: list_uid)
       # byebug
       if !list
-        render json: {error: "No such ID"}
+        render json: {error: "No such ID!"}
       else
         lists = list.names
         render json: {uid:list.uid, names: lists}
