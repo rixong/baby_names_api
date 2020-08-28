@@ -1,5 +1,10 @@
 class NamesController < ApplicationController
 
+  def index
+      list_uid = params[:uid]
+      names = 
+  end
+
   def create
     # list_uid = params[:uid]
     # name = params[:name]

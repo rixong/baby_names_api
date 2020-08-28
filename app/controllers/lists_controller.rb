@@ -16,7 +16,7 @@ class ListsController < ApplicationController
         render json: {error: "No such ID!"}
       else
         lists = list.names
-        render json: {uid:list.uid, names: lists}
+        render json: {list:list, names: lists}
       end
     
     end
