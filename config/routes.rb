@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   post '/', to: 'names#create'
   patch '/', to: 'names#update'
   get '/names', to: 'names#index'
+  
 end

@@ -9,10 +9,12 @@ class NamesController < ApplicationController
   def create
     # list_obj = List.find_by(id: params[:id])
     # byebug
-    newName = Name.create(name: params[:name], active: true, list_id: params[:id])
-    if !newName.valid?
+    name = Name.find_by("list_id = ? AND name = ?", params[:id], params[:name])
+    # byebug
+    if name
       render json: {error: 'Name already exists!'}
     else
+      newName = Name.create(name: params[:name], active: true, list_id: params[:id])
       render json: {message: 'Done!'}
     end
   end
