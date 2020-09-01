@@ -28,4 +28,10 @@ class NamesController < ApplicationController
     render json: name
   end
 
+  def destroy
+    name = Name.find_by("list_id = ? AND id = ?", params[:id], params[:name_id])
+    name.destroy();
+    render json: {message: 'Done!'}
+  end
+
 end
