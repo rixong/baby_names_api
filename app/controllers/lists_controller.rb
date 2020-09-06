@@ -10,16 +10,16 @@ class ListsController < ApplicationController
         new_uid = SecureRandom.hex(6)
       end
       list = List.create(uid: new_uid)
-      render json: {list: list}
+      render json: {list: list, status:'ok'}
     
     else
       list = List.find_by(uid: list_uid)
       
       if !list
-        render json: {error: "No such ID!"}
+        render json: {error: "No such ID!", status:'error'}
       else
         # lists = list.names
-        render json: {list: list}
+        render json: {list: list, status:'ok'}
       end
     
     end

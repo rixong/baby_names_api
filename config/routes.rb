@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   get '/', to: 'lists#index'
   post '/', to: 'names#create'
-  patch '/', to: 'names#update'
+  patch '/names/:id', to: 'names#update'
   get '/names', to: 'names#index'
-  delete '/names', to: 'names#destroy'
+  delete '/names/:id', to: 'names#destroy'
 end
